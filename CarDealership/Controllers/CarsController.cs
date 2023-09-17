@@ -9,8 +9,15 @@ namespace CarDealership.Controllers
       [HttpGet("/cars")]
     public ActionResult Index()
     {
-      List<Item> allCars = Cars.GetAll();
+      List<Car> allCars = Car.GetAll();
       return View(allCars);
     }
+
+     [HttpGet("/cars/new")]
+    public ActionResult CreateForm()
+    {
+      return View();
+    }
+
   }
 }
