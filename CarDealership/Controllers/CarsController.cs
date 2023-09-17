@@ -6,17 +6,24 @@ namespace CarDealership.Controllers
 {
   public class CarsController : Controller
   {
-      [HttpGet("/cars")]
+    [HttpGet("/cars")]
     public ActionResult Index()
     {
       List<Car> allCars = Car.GetAll();
       return View(allCars);
     }
 
-     [HttpGet("/cars/new")]
+    [HttpGet("/cars/new")]
     public ActionResult CreateForm()
     {
       return View();
+    }
+
+    [HttpPost("/cars")]
+    public ActionResult Create(string description, string title)
+    {
+      Car myCar = new Car(description, title);
+      return RedirectToAction("Index");
     }
 
   }
