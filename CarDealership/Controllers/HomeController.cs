@@ -6,8 +6,10 @@ namespace CarDealership.Controllers
   public class HomeController : Controller  
   {
 
-        [Route("/")] 
-      public string Car() { return "Car list will display here!"; }
-      
+        [HttpGet("/")] 
+      public ActionResult Index() 
+      {
+        return View();
+      }
   }
 }
