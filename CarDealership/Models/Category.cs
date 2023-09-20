@@ -14,7 +14,17 @@ namespace CarDealership.Models
       Name = categoryName;
       _instances.Add(this);
       Id = _instances.Count;
-      Items = new List<Item>{};
+      Cars = new List<Car>{};
+    }
+
+      public static List<Category> GetAll()
+    {
+      return _instances;
+    }
+
+        public static Category Find(int searchId)
+    {
+      return _instances[searchId-1];
     }
   }
 }
