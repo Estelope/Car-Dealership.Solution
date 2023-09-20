@@ -9,12 +9,17 @@ namespace CarDealership.Models
     public int Id { get; }
     public List<Car> Cars { get; set; }
 
-     public Category(string categoryName)
+      public Category(string categoryName)
     {
       Name = categoryName;
       _instances.Add(this);
       Id = _instances.Count;
       Cars = new List<Car>{};
+    }
+
+      public static void ClearAll()
+    {
+      _instances.Clear();
     }
 
       public static List<Category> GetAll()
