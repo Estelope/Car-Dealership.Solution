@@ -6,25 +6,23 @@ namespace CarDealership.Controllers
 {
   public class CarsController : Controller
   {
-    [HttpGet("/cars")]
-    public ActionResult Index()
+
+    [HttpGet("/categories/{categoryId}/cars/new")]
+    public ActionResult New(int categoryId)
     {
-      List<Car> allCars = Car.GetAll();
-      return View(allCars);
+       Category category = Category.Find(categoryId);
+       return View(category);
     }
 
-    [HttpGet("/cars/new")]
-    public ActionResult CreateForm()
+    [HttpGet("/categories/{categoryId}/cars/{carId}")]
+    public ActionResult Show(int categoryId, int carId)
     {
-      return View();
+      Car car = Car.Find(carId);
+      Category category = Category.Find(categoryId);
+      Dictionary<string, object> model = new Dictionary<string, object>();
+      model.Add("car", car);
+      model.Add("category", category);
+      return View(model);
     }
-
-    [HttpPost("/cars")]
-    public ActionResult Create(string description, string title)
-    {
-      Car myCar = new Car(description, title);
-      return RedirectToAction("Index");
-    }
-
   }
 }

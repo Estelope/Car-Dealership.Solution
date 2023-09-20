@@ -31,5 +31,9 @@ namespace CarDealership.Models
     {
       return _instances[searchId-1];
     }
+        public void AddCar(Car car)
+        {
+            Cars.Add(car);
+        }
   }
 }
