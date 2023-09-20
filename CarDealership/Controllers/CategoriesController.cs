@@ -33,9 +33,9 @@ namespace CarDealership.Controllers
   {
     Dictionary<string, object> model = new Dictionary<string, object>();
     Category selectedCategory = Category.Find(id);
-    List<Car> categoryItems = selectedCategory.Cars;
+    List<Car> categoryCars = selectedCategory.Cars;
     model.Add("category", selectedCategory);
-    model.Add("Cars", categoryItems);
+    model.Add("cars", categoryCars);
     return View(model);
   }
 

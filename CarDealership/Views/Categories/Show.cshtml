@@ -12,7 +12,7 @@
   <body>
     @using CarDealership.Models;
 
-    <h3>Here are all the items in this category:</h3>
+    <h3>Here's a list of descriptions for the car:</h3>
 
     <ol>
     @foreach (Car car in @Model["cars"])
@@ -21,8 +21,8 @@
     }
     </ol>
 
-    <p><a href='/categories/@Model["category"].Id/cars/new'>Add a new car</a></p>
-    <p><a href='/categories'>Return to category list</a></p>
+    <p><a href='/categories/@Model["category"].Id/cars/new'>Add a new description</a></p>
+    <p><a href='/categories'>Return to car list</a></p>
     <p><a href='/'>Return to Main Page</a></p>
   </body>
 </html>
