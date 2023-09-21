@@ -11,7 +11,6 @@ namespace CarDealership.Models
 
     public Car(string description)
     {
-     // Title = title;
       Description = description;
       _instances.Add(this);
       Id = _instances.Count;
